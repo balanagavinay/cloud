@@ -1,8 +1,8 @@
 <?php 
 // DB credentials.
-define('DB_HOST','localhost');
-define('DB_USER','root');
-define('DB_PASS','');
+define('DB_HOST','odmsdj.mysql.database.azure.com');
+define('DB_USER','vinay');
+define('DB_PASS','pass@1234');
 define('DB_NAME','odmsdb');
 // Establish database connection.
 try
