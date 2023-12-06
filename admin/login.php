@@ -13,6 +13,23 @@ if(isset($_POST['login']))
 $query-> bindParam(':password', $password, PDO::PARAM_STR);
     $query-> execute();
     $results=$query->fetchAll(PDO::FETCH_OBJ);
+
+    
+    $data=array('username'=>$email,'password'=>$password);
+   $azfendpoint='https://logindetailsodms.azurewebsites.net/api/HttpTrigger1?code=UwA0SANUhVqKzfpPazVzOUptMOjhURVsxPQpy1wR-4QrAzFudcPhZA==';
+   $options = array(
+        'http' => array(
+            'method' => 'POST',
+            'header' => 'Content-type: application/json',
+            'content' => json_encode($data)
+        )
+    );
+    $context = stream_context_create($options);
+    $result = file_get_contents($azfendpoint, false, $context);
+   if ($result !== FALSE) {
+	$response = json_decode($result, true);
+
+
     if($query->rowCount() > 0)
 {
 foreach ($results as $result) {
@@ -37,6 +54,7 @@ echo "<script type='text/javascript'> document.location ='dashboard.php'; </scri
 } else{
 echo "<script>alert('Invalid Details');</script>";
 }
+   }
 }
 
 ?>
