@@ -1,13 +1,11 @@
-     <?php
+<?php
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
 if (strlen($_SESSION['odmsaid']==0)) {
   header('location:logout.php');
   } else{
-
-
-
+     
   ?>
    <nav id="sidebar">
                 <!-- Sidebar Scroll Container -->
