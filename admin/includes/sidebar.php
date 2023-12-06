@@ -60,7 +60,7 @@ if (strlen($_SESSION['odmsaid']==0)) {
                                     <img class="img-avatar" src="assets/img/avatars/avatar15.jpg" alt="">
                                 </a>
                                 <ul class="list-inline mt-10">
-                                    <?php
+<?php
 $aid=$_SESSION['odmsaid'];
 $sql="SELECT AdminName from  tbladmin where ID=:aid";
 $query = $dbh -> prepare($sql);
