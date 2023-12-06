@@ -1,13 +1,10 @@
-   <?php
+<?php
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
 if (strlen($_SESSION['odmsaid']==0)) {
   header('location:logout.php');
   } else{
-
-
-
   ?>
             <header id="page-header">
                 <!-- Header Content -->
@@ -92,7 +89,7 @@ if (strlen($_SESSION['odmsaid']==0)) {
                     <div class="content-header-section">
                         <!-- User Dropdown -->
                         <div class="btn-group" role="group">
-                            <?php
+<?php
 $aid=$_SESSION['odmsaid'];
 $sql="SELECT AdminName from  tbladmin where ID=:aid";
 $query = $dbh -> prepare($sql);
@@ -150,4 +147,4 @@ foreach($results as $row)
                 </div>
                 <!-- END Header Loader -->
             </header>
-            <?php }  ?>
+   <?php }  ?>
